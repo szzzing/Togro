@@ -1,13 +1,16 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+    lintOnSave:false,
     transpileDependencies: true,
     devServer: {
-        // proxy: {
-        //     '/': {
-        //         target: 'http://localhost:8080',
-        //         changeOrigin: true,
-        //         logLevel: 'debug', // 터미널에 proxy 로그 생성
-        //     }
-        // }
+        port: 8080,
+        proxy: {
+            '/': {
+                target: 'http://localhost:9000',
+                changeOrigin: true,
+                ws: false, // 웹소켓 off
+            }
+        }
     },
+    outputDir: "../back/src/main/resources/static",
 })

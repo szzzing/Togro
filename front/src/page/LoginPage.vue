@@ -19,7 +19,7 @@ export default {
     },
     methods: {
         login() {
-            this.axios.post("http://localhost:8080/login", {id: this.id, pw:this.pw})
+            this.axios.post("/login", {id: this.id, pw:this.pw})
             .then((response)=>{
                 console.log(response);
             })
