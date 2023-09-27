@@ -1,9 +1,7 @@
 <template>
     <div id="login-page" class="page">
         <img class="logo" width="40" src="../../public/logo.svg">
-        <input type="text" v-model="id">
-        <input type="password" v-model="pw">
-        <button @click="login">로그인</button>
+        <img class="kakao" src="../assets/kakao_button.png" @click="clickKakaoLogin">
     </div>
 </template>
 
@@ -18,12 +16,13 @@ export default {
         }
     },
     methods: {
-        login() {
-            this.axios.post("/login", {id: this.id, pw:this.pw})
-            .then((response)=>{
-                console.log(response);
-            })
-        }
+        clickKakaoLogin() {
+            const client_id = process.env.VUE_APP_KAKAO_NATIVE_APP_KEY;
+            const redirect_uri = process.env.VUE_APP_KAKAO_REDIRECT_URI;
+            const response_type = "code";
+
+            window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}`;
+        },
     }
 }
 </script>
@@ -36,5 +35,10 @@ export default {
 .logo {
     display: block;
     margin: auto;
+    margin-bottom: 24px;
+}
+.kakao {
+    margin: auto;
+    display: block;
 }
 </style>

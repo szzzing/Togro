@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory} from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import LoginPage from '@/page/LoginPage'
 
 const routes = [
@@ -9,7 +9,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     // 라우터 선택 효과
     linkActiveClass: "route-active",
     linkExactActiveClass: "route-active",
@@ -17,7 +17,7 @@ const router = createRouter({
     scrollBehavior() {
         return { top: 0 }
     },
-    routes
+    routes,
 })
 
 export default router;
