@@ -5,7 +5,7 @@ const routes = [
     {
         path: '/',
         component: LoginPage,
-    }
+    },
 ]
 
 const router = createRouter({

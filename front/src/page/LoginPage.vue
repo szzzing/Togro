@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         clickKakaoLogin() {
-            const client_id = process.env.VUE_APP_KAKAO_NATIVE_APP_KEY;
+            const client_id = process.env.VUE_APP_KAKAO_REST_API_KEY;
             const redirect_uri = process.env.VUE_APP_KAKAO_REDIRECT_URI;
             const response_type = "code";
 
